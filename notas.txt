@@ -1,0 +1,177 @@
+Especificidad: nos define que valores serán tomados, teniendo como criterio
+que tan especifica es nuestro selector.
+Para tener una especificidad mas alta es necesario utilizar Classes y ID's
+
+para agregar una class en css usamos .NombreClass etiqueta{}
+para agregar un id en css usamos #NombreID etiqueta{}
+
+.navegacion a {
+    text-transform: lowercase;
+}
+
+#navegacion a {
+    text-transform: capitalize;
+}
+
+En CSS todo es una caja, y sus medidas dependen de 4 cosas: El contenido,
+el Padding (Relleno), Borde y Margen. Lo mejor es aplicar Box Model.
+
+El padding es de la orilla del elemento al centro, el margin es de la orilla del elemento hacia afuera,
+es decir los aleja.
+
+Normalizar
+Algunos navegadores aplican sus propias reglas de CSS, por ello deben normalizarse
+(Normalize.css) se copia, se crea el archivo, se pega y se agrega en el head del index
+
+Display: donde se muestran los elementos, cada uno lo tine por default
+Display block: los elementos se colocarán por debajo
+Display inline: se posicionará a la derecha, una vez haya tomado el espacio que requiere
+Display inline-block: permite dar a un elemento un  width, height y margin a un
+elemento inline, cosa que con inline no se puede.
+
+A un Display inline, no se le puede aplicar un width ni un height y se ubican uno al lado 
+del otro.
+
+Flexbox
+Modelo unidimensional para crear Layouts, para distribuir los elementos en Ejes ya ser
+en fila(row) o columna(column), el row es aplicado por default al definir un display:Flex
+No añade efectos de animación ni texto.
+Para aplicarlo debe hacerse en el padre directo de los elementos a ordenar y usar 
+flex-direction. Se trata de adaptar en el espacio disponible, es flexible.
+
+Justify Content puede usarse para alinear el contenido horizontalmente si se usa row
+o verticalmente si es column
+
+Align Items trabaja de manera contraria a Justify Content
+
+
+CSS Grid
+Permite definir la ubicación y el tamaño de tu sitio web. Mientras Flexbox es unidimensional,
+CSS Grid permite distribuir elementos en ambas. Display: grid, Se mantiene en el espacio 
+que se le define.
+
+Terminología CSS Grid
+Para crear columnas usamos grid-template-columns y grid-template-row para las filas,
+Grid Lines: Permite posicionar a los hijos en la cuadriculas a nuestra conveniencia
+Grid Track: Ubica a los hijos en filas o columnas consecutivas.
+
+@font-face es posible añadir nuevas fuentes
+
+Ciertas propiedades requieren unidades, como el width, margin, padding, etc.
+La unidad va junto al valores sin espacio, algunas propiedades pueden tener 
+unidades negativas.
+
+Para responsive lo mejor es usar Unidades Relativas, em, rem, vh, vw y porcentajes
+pues los pixeles no escalan bien.
+
+Los em y el % se basan en el tamaño del elemento padre para calcularse,
+los rem se basan en el tamaño del html, que por defecto es de 16px.
+Para tamaños específicos con rem se puede googlear la calculadora de rems
+
+Formas de escribir  código en CSS
+    BEM -Block Element Modifier
+Un elemento que contiene a los demás, y los hijos llevan el nombre del elemento seguido
+de doble guion bajo y su nombre: .card{} .card__titulo{} .card__boton{}; si al ocurrir
+un evento el elemento se modifica, el nombre cambia con la modificación 
+.card__boton{}--activo
+    Módulos Css
+.categoria{} .categoria h2{} .categoria a{}
+    SMACSS
+agrupar por propiedades que se comparten #
+
+¿Cuando usar grid o flex-box?
+Flex
+Para la alineación o distribución de los elementos que están dentro de los contenedores.
+flex-direction, justify-content, align-items.
+
+Grid
+Para definir el Layout de tu sitio web, como pueden ser las columnas o contenedores de
+elementos. para elegir el diseño, para los contenedores principales.
+
+Flex Basis
+Es una propiedad que se aplica en el hijo, distribuye el espacio, se le puede dar un
+valor inicial, no obliga a respetar el tamaño, son cajas flexibles.
+
+Gap y Calc 
+Gap añade separación, calc es una calculadora de espacio, junto con space-between de 
+justify se pueden agregar separaciones.
+
+Flex Wrap
+Hace dar el salto de linea, Flex-wrap: wrap; por defecto viene nowrap, se lleva bn con
+flex-basics. Se aplica en el padre. Es muy util para las cuadriculas.
+
+Flex Grow
+Factor de crecimiento, se aplica directamente en el elemento, con 1 toman todo el espacio
+disponible. Aquí le digo que a cada elemento le de un pixel. Su  valor por defecto
+es cero. Se puede especificar factores de crecimiento diferente para cada elemento.
+
+Flex Shrink
+Factor de contracción, solo toma números enteros como el flex grow. Este dicta como
+disminuye un elemento.
+
+Flex Shorthand
+Es flex grow, basis and shrink todo en un mismo comando
+
+Grid basics
+
+Grid solo afecta al primer nivel de hijos.
+Para establecer el tamaño de las columnas se usa grid-template-columns.
+.box:nth-child(#elemento) se usa para establecer propiedades a un elemento especifico.
+grid-column: 1/2; el elemento va de la linea 1 a la 2.
+
+grid-template-columns: Define el tamaño de cada columna, usando repeat(6, 300px) se pueden
+establecer los tamaños de las filas, donde el primer numero es la cantidad de veces
+que se repite y el segundo es el tamaño. sirve también en grid-template-row.
+
+grid-template-row: grid-(row/column)-(start/end) permite establecer (en un hijo) donde
+inicia el elemento y donde finaliza, permitiendo a los demás ubicarse en los espacios 
+disponibles. También se pueden usar grid-template-columns y row al tiempo, creando 
+una cuadricula.
+
+column span y row span: se agrega para definir cuantos espacios quiere que tome el 
+elemento. Funciona igual con grid-column/row: donde empieza / donde termina.
+
+Grid Shorthand: version corta para declara un grid.
+grid: repeat(2, 300px) / repeat(3, 300px) {2 rows de 300px y 3 columns de 300px}
+
+Grid Autoflow: Trabaja posicionando los hijos en la manera consecutiva, ya sea en row
+o en column. grid-autoflow: row/column/dense;
+
+grid-template-columns: 2fr repeat(2 , 1fr); a la primera columna darle dos fracciones
+y a las dos siguientes darles de a una fracción.
+
+grid-gap: no se recomienda usar pixeles con grip. Se iguala el margin a cero.
+column-gap: 2rem; también se puede con row. o ambas con solo gap.
+
+grid-template-area: va acompañado del grid-template-columns/row, crea areas al ir nombrándolas
+        display: grid;
+        height: 120rem;
+        grid-template-area: "header header header"
+                            "nav nav nav"
+                            "contenido contenido contenido"
+        ;
+        grid-template-columns: repeat(3 , 1fr);
+
+para posicionar cada area se establece el elemento hijo a posicionar y se llama así:
+.elemento .nombrehijo:nth-child(#hijo){
+    grid-area: header;
+}
+para agregar rows, es necesario establecer una altura (height). align-items alinea según
+se escoja una opcion, por defecto grid toma todo el ancho y el largo.
+Place-content funciona como aling items.
+
+Autofill genera columnas mientras haya espacio y Autofit solo crea las columnas
+necesarias, basándose en los hijos del elemento.
+
+
+Selectores en CSS
+
+en el archivo .vss ligado al html se introducen los selectores
+
+Selector de etiqueta
+.p {
+    color: red;
+}
+.div{} .h2{} etc.
+
+selector de clase
