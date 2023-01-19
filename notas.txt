@@ -174,4 +174,57 @@ Selector de etiqueta
 }
 .div{} .h2{} etc.
 
-selector de clase
+Selector de clase
+.nombre-clase {}
+
+Selector de clase2
+.nombre-clase1.nombre-clase2 {} comparten propiedades
+
+Selector de clases anidadas
+.nombre-padre .nombre-hijo{} se aplica el ultimo selector, pero siempre se guía
+por la especificidad, esto habla sobre que tan especifico es el llamamiento de la clase.
+
+Selector de ID
+No se recomiendan mucho porque no son muy utilizables debido a que no se deben repetir
+sus nombres, para la clase se una el punto (.) seguido del nombre, para usar el 
+ID como llamado se usa el hashtag (#), el ID tiene la especificidad mayor, osea tiene
+mas peso sus propiedades. Pueden mezclarse #ID.nombre-clase y dan mas especificidad.
+
+Selector de etiqueta y clase
+nombre-etiqueta.nombre-clase-hija{}
+
+Elementos
+.clase1, 
+clase2{} 
+Al separarlas por coma utilizan las mismas propiedades aunque no tengan relación entre 
+ellas, por convención es mejor dejarlas en renglones separados.
+
+Primer nivel de hijos
+.clase o etiqueta > .clase o etiqueta{}
+Asi solo se toma el primer nivel de hijos
+
+Primer Elemento después
+.clase o etiqueta .clase o etiqueta + .clase o etiqueta{}
+selecciona el siguiente hijo, no el primero
+
+Selector de atributos
+etiqueta[atributo, completo o parcial tipo href^="http", asi todos los enlaces que 
+contienen http son afectados por las propiedades]{propiedades}
+
+Seleccionar elementos en especifico
+etiqueta/.clase etiqueta/.clase:(2n +1){} elige los impares, puede ponerse cualquier 
+serie, o usar un numero en especifico. 
+
+seleccionar todos menos un elemento
+etiqueta/.campo:not(etiqueta/.campo){}
+
+
+        Responsive Web Desing
+
+Media Query
+@media indica que el siguiente codigo aplica en condiciones especiales, y se pueden
+utilizar propiedades diferentes.
+
+@media print {} para cuando se va a imprimir
+
+@media ( max-width: 600px ){} la pantalla menor de 600px aplican las propiedades
